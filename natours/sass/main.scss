@@ -11,19 +11,36 @@ $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
-* {
+$color-grey-dark: #777;
+$color-grey-white: #fff;
+
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10 px / 16 px = 0.625 = 62.5 % */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  /* does not work on safari and ms edge */
+  /* scroll-behavior: smooth; */
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
-  padding: 30px;
+  color: $color-grey-dark;
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -39,45 +56,45 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   position: relative;
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 35px;
-}
+  &__logo {
+    height: 3rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  /* In relation to parent element */
-  top: 40%;
-  left: 50%;
-  /* In Relation to self */
-  transform: translate(-50%, -50%);
+  &__text-box {
+    position: absolute;
+    /* In relation to parent element */
+    top: 40%;
+    left: 50%;
+    /* In Relation to self */
+    transform: translate(-50%, -50%);
 
-  text-align: center;
+    text-align: center;
+  }
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-grey-white;
   text-transform: uppercase;
 
   /* This could not be required here most likely
        It repairs shaking which was not vissible in new Firefox browser
     */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -89,9 +106,9 @@ body {
 
 .heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.74rem;
 
   animation-name: moveInRight;
   animation-duration: 1s;
@@ -101,10 +118,10 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   100% {
     opacity: 1;
@@ -115,10 +132,10 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
   100% {
     opacity: 1;
@@ -129,10 +146,10 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
   80% {
-    transform: translateY(-10px);
+    transform: translateY(-1rem);
   }
   100% {
     opacity: 1;
@@ -144,23 +161,24 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-grey-white;
+  color: $color-grey-dark;
 }
 
 .btn:after {
@@ -168,7 +186,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -177,7 +195,7 @@ body {
 }
 
 .btn--white:after {
-  background-color: #fff;
+  background-color: $color-grey-white;
 }
 
 .btn:hover::after {
